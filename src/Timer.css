@@ -1,0 +1,31 @@
+/* .Timer  */
+.circle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circles {
+    margin: 1rem;
+    padding: 50px;
+    /* font-weight: 100; */
+    background-color: #0d489b;
+    border-radius: 50%;
+    border: solid;
+
+    border-color: rgba(255, 255, 255, 0.7);
+    border-width: 5px;
+    color: white;
+    font-size: 50px;
+    /* font-weight: 400px; */
+    size: 50px;
+}
+
+/* come up with better ways to assign bubbles sizes */
+/* #c50 {
+    flex-grow: 1.5;
+} */
+
+#timer-comp {
+    padding: 60px 0px;
+    /* margin: 10px; */
+  }

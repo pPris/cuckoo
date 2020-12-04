@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Projection information
+Create a clone of cuckoo.team for practicing react
+
+
 ## Available Scripts
 
 In the project directory, you can run:
