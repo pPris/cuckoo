@@ -1,5 +1,5 @@
 body {
-  margin: 1em;
+  /* margin: 1em; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -19,6 +19,39 @@ code {
 
 #footer {
   text-align: left;
+  position: absolute;
+  bottom: 10px; /* doesn't work? */
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  color: whitesmoke;
+}
+
+#members-list {
+  display:flex;
+}
+
+.members-circles {
+  /* margin: 0.1em; */
+  height: 1em;
+  width: 1em;
+  background-color: white;
+  border-radius: 50%;
+  color: black;
+  
+  /* border: solid; */
+
+  /* border-color: rgba(255, 255, 255, 0.7);
+  border-width: 5px;
+  
+  font-size: 50px; */
+  /* font-weight: 400px; */
+  /* size: 20em; */
+  
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #timer-mode {

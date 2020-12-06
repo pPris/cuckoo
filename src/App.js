@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Footer from './Footer';
+import Bubbles from './Bubbles';
 import Timer from './Timer';
 // import './Timer.css';
 
@@ -20,16 +21,18 @@ class App extends Component {
         // Object.freeze(modes) 
 
         // **things that the mode affects:
-            // different timer values are stored for different modes
-            // different page header
-            // toggle bubble has different text 
-            // whether the body has bubbles or a countdown
-            // the background - is different if the timer is on
+            // different timer values are stored for different modes (in app)
+            // different page header (in app component)
+            // toggle bubble has different text (in bubbles)
+            // whether the body has bubbles or a countdown (in app)
+            // the background - is different if the timer is on (in app)
         // things that mode doesn't affect 
             // the history log, members list, and settings toolbar
 
+        // work vs break mode
         const initMode = true;
         const currMode = initMode;
+
         const timerStatus = false; // true if timer is currently running
 
         // the heading at the top of the cuckoo timer page
@@ -41,9 +44,11 @@ class App extends Component {
         const workTimes = [5, 10, 15, 25, 30, 50];
         const body = 
             timerStatus 
-            ? <Timer /> 
-            : <Timer /> // change this to bubbles when its ready
+            ? <Timer /> // change this to timer when its ready
+            : <Bubbles mode={currMode} timings={currMode ? workTimes : breakTimes}/> 
 
+        // let elem = document.querySelector("#timer-mode");
+        // elem.style.color = "#ffccff";
 
         return (
             <div>
@@ -57,7 +62,7 @@ class App extends Component {
                     stores the bubbles when no timer, 
                     and has the timer when break or work session going on*/}
                     {/* what controls the modes? */}
-                <Footer />
+                <Footer id="app-footer" />
             </div>
         )
     }
