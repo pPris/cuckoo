@@ -1,41 +1,22 @@
 import React, {Component} from 'react';
 import './Sidebar.css'
 
-const infoBarOffset = '250px';
-const isOpen = true;
+/* <!-- sources used for sidebar designing and tooltips: w3schools.com --> */
 
-const Iconbar = () => {
-    // replace isOpen with state later
-    
+/* 
+bring icon bar thing inside sidebarcomponent
+every onclick function --> toggle state whether infobar is open, and pass a prop to infobar to determine what info should be displayed
+render info bar only if state is true
+*/
 
-    //// EXTRA STYLING ON TOP OF CSS SHEET
-    // styling when infobar is open
-    let className = 'sidenav';
-
-    // add all hover properties when extended bar is open 
-    if (isOpen) className += ' sidenavhover open-iconbar'
-
-    // need to revert styling when infobar closes?
-
-    return (
-        <div id="sidenav" class={className}>
-            <p><span class="material-icons">perm_identity</span></p>
-            <p><span class="material-icons">hourglass_empty</span></p>
-            <p><span class="material-icons">info_outline</span></p>
-            <p><i class="material-icons">chat_bubble_outline</i></p>
-            <p><i class="material-icons">exit_to_app</i></p>
-        </div>
-    )
-}
-
+// this component is not going to be rendered unless it's opened by clicking an icon
+// will need to render correct information based on props
 const Infobar = () => {
 
-    //// EXTRA STYLING ON TOP OF CSS SHEET
-    // styling when infobar is open
     let className = 'infobar';
 
-    // add all hover properties when extended bar is open 
-    if (isOpen) className += ' open-infobar'
+    // if (isOpen) 
+    className += ' open-infobar' // always add
 
     return (
         <div id="infobar" class={className}>
@@ -46,36 +27,54 @@ const Infobar = () => {
 
 class Sidebar extends Component {
     state = {
-        infoBarOpen: false
+        infoBarOpen: false,
+        infoToDisplay: 0 // 1-5 corresponds to each icon, from top to bottom order
     }
+    
 
     render() {
 
-        /*
-        function openNav() {
-            document.getElementById("infobar").style.width = "250px";
-            document.getElementById("sidenav").style.right = "250px";
-            // console.log(1);
-
-            // sidenav background colour should match hover colour when infobar is open 
+        const toggleOpen = (x) => {
+            // when close, just toggle
+            // when open, should toggle only if same x/icon is clicked
+            // if not same, then should change the information being displayed that's all
+            console.log(x);
+            this.setState((state) => (
+                {infoBarOpen: (!state.infoBarOpen || x === state.infoToDisplay 
+                    ? (!state.infoBarOpen) 
+                    : state.infoBarOpen), 
+                infoToDisplay: x}))
         }
 
-        // automatically close whenever out of focus too
-        function closeNav() {
-            document.getElementById("infobar").style.width = "0px";
-            document.getElementById("sidenav").style.right = "0px";
-        } */
+        const infobar = () => {
+            if (this.state.infoBarOpen) {
+                return (<Infobar display={this.state.infoToDisplay}/>)
+            }
+        }
+
+        //// EXTRA STYLING ON TOP OF CSS SHEET
+        // ICONBAR/SIDENAV
+        let className = 'sidenav';
+
+        // add all hover properties when extended bar is open 
+        if (this.state.infoBarOpen) className += ' sidenavhover open-iconbar'
 
 
         return (
             <div>
-                {/* <!-- sources used for sidebar designing and tooltips: w3schools.com --> */}
 
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-                    rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-                <Iconbar />
-                <Infobar />
+                {/* // on click, each icon will lead to a different set of info being displayed on the info bar */}
+                    <div id="sidenav" class={className}>
+                        <p onClick={() => toggleOpen(1)}><span class="material-icons">perm_identity</span></p>
+                        <p onClick={() => toggleOpen(2)}><span class="material-icons">hourglass_empty</span></p>
+                        <p onClick={() => toggleOpen(3)}><span class="material-icons">info_outline</span></p>
+                        <p onClick={() => toggleOpen(4)}><i class="material-icons">chat_bubble_outline</i></p>
+                        <p><i class="material-icons">exit_to_app</i></p>
+                    </div>
+                
+                {infobar()}
             </div>
         )
     }
