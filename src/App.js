@@ -6,7 +6,12 @@ import Timer from './Timer';
 
 class App extends Component {
     // why can't any code be written here?
-
+    state = {
+        currMode: true,
+        timerStatus: false,
+        breakTimes: [2, 5, 7, 10, 20],
+        workTimes: [5, 10, 15, 25, 30, 50]
+    }
 
     render() {
         // enums of the different modes this cuckoo application supports
@@ -30,26 +35,36 @@ class App extends Component {
             // the history log, members list, and settings toolbar
 
         // work vs break mode
-        const initMode = true;
-        const currMode = initMode;
+        
 
-        const timerStatus = false; // true if timer is currently running
+        // const initMode = true;
+        // const currMode = initMode;
+
+        // const timerStatus = false; // true if timer is currently running
+
+        const toggleFunction = () => {
+            this.setState((state) => ({currMode: !state.currMode})) // ({}) impt, you're likely returning an object 
+        }
+
 
         // the heading at the top of the cuckoo timer page
-        const timerHeading = currMode 
+        const timerHeading = this.state.currMode 
             ? 'work time'
             : 'break time';
 
         const breakTimes = [2, 5, 7, 10, 20];
         const workTimes = [5, 10, 15, 25, 30, 50];
         const body = 
-            timerStatus 
-            ? <Timer /> // change this to timer when its ready
-            : <Bubbles mode={currMode} timings={currMode ? workTimes : breakTimes}/> 
+            this.state.timerStatus 
+            ? <Timer toggleFx={toggleFunction}/> // change this to timer when its ready
+            : <Bubbles mode={this.state.currMode} 
+            toggleFx={toggleFunction}
+            timings={this.state.currMode ? this.state.workTimes : this.state.breakTimes}/> 
 
         // let elem = document.querySelector("#timer-mode");
         // elem.style.color = "#ffccff";
 
+        
         return (
             <div>
                 <p id="timer-mode">{timerHeading}</p>
