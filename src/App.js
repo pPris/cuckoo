@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Footer from './Footer';
 import Bubbles from './Bubbles';
 import Timer from './Timer';
+import Sidebar from './Sidebar';
+
 // import './Timer.css';
 
 class App extends Component {
@@ -62,6 +64,7 @@ class App extends Component {
                     stores the bubbles when no timer, 
                     and has the timer when break or work session going on*/}
                     {/* what controls the modes? */}
+                <Sidebar />
                 <Footer id="app-footer" />
             </div>
         )
