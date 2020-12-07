@@ -1,0 +1,68 @@
+:root {
+    --border-color: #0001
+  }
+  
+  body {
+    background-color: #dad;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+  }
+  
+  .sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 5%; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+  
+    overflow-x: hidden; /* Disable horizontal scroll */
+    
+    /*  need to specify initial properties for transition   */
+    border-color: var(--border-color); 
+    
+    
+    
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    
+    /*  using flex to center div items  */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  /*   text-align: right; */
+      color: white;
+  }
+  
+  /* i {
+    line-spacing: 10px;
+  } */
+  
+  .sidenav:hover {
+    background-color: #5552;
+    border-left: solid;
+    border-width: 1.2px;
+    border-color: var(--border-color); /* todo something darker than bg  */
+    
+  /*   box-shadow: inset 5px 0px #fff5 */
+  }
+  
+  #infobar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background-color: #bbb5; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  .infobar:hover {
+    
+  }
