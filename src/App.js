@@ -61,6 +61,19 @@ class App extends Component {
             toggleFx={toggleFunction}
             timings={this.state.currMode ? this.state.workTimes : this.state.breakTimes}/> 
 
+        const workColor = '#3480eb';
+        const breakColor = '#8934eb';
+
+        if (this.state.currMode) {
+            document.body.style.backgroundColor = 
+            // workColor 
+            '#dad';
+        } else {
+            document.body.style.backgroundColor = 
+            // breakColor 
+            '#aaf';
+        }
+
         // let elem = document.querySelector("#timer-mode");
         // elem.style.color = "#ffccff";
 

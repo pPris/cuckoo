@@ -1,6 +1,7 @@
 :root {
   --work-bg: #3480eb;
   --break-bg: #8934eb;
+  /* bg colours changed in app component instead */
 }
 
 body {
