@@ -1,5 +1,6 @@
 :root {
-    --border-color: #0001
+    --border-color: #0001;
+    --bar-offset: 250px;
   }
   
   body {
@@ -12,7 +13,7 @@
   
   .sidenav {
     height: 100%; /* 100% Full-height */
-    width: 5%; /* 0 width - change this with JavaScript */
+    width: 5%; 
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
@@ -41,28 +42,38 @@
     line-spacing: 10px;
   } */
   
-  .sidenav:hover {
+  .sidenav:hover, .sidenavhover { 
     background-color: #5552;
     border-left: solid;
+    border-right: solid;
     border-width: 1.2px;
     border-color: var(--border-color); /* todo something darker than bg  */
     
   /*   box-shadow: inset 5px 0px #fff5 */
   }
   
-  #infobar {
+  .infobar {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     right: 0;
-    background-color: #bbb5; /* Black*/
+    background-color: #7773; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   }
   
-  .infobar:hover {
-    
+  /* sidenav class when infobar is open */
+  /* todo rename sidenav as iconbar or settings */
+  .open-iconbar {
+    right: var(--bar-offset);
   }
+
+  .open-infobar {
+    width: var(--bar-offset);
+    /* background-color: red; */
+
+  }
+
