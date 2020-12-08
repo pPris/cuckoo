@@ -9,8 +9,14 @@ class Footer extends Component {
     render() {
         return (
             <div id="footer">
-                <p id="log">X did something 6 minutes ago.</p>
-                <p id="profile pictures">Coming soon.</p>
+                <div id="log">
+                    <p id="log1">X did something 6 minutes ago.</p>
+                </div>
+                <div id="members-list">
+                    <p class="members-circles">P</p>
+                    <p>Coming soon.</p>
+                </div>
+                <p id="logos">Insert credits here.</p>
             </div>
         )
     }
