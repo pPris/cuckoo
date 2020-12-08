@@ -1,6 +1,7 @@
 :root {
     --border-color: #0001;
     --bar-offset: 250px;
+    --iconbar-width: 70px;
   }
   
   body {
@@ -12,11 +13,11 @@
   }
   
   .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 5%; 
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    height: 100%; 
+    width: var(--iconbar-width); 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
     right: 0;
   
     overflow-x: hidden; /* Disable horizontal scroll */
@@ -34,14 +35,9 @@
     justify-content: center;
     align-items: center;
     
-  /*   text-align: right; */
-      color: white;
-  }
-  
-  /* i {
-    line-spacing: 10px;
-  } */
-  
+    color: white;
+  }  
+
   .sidenav:hover, .sidenavhover { 
     background-color: #5552;
     border-left: solid;
@@ -51,17 +47,38 @@
     
   /*   box-shadow: inset 5px 0px #fff5 */
   }
+
+  .sidenav p {
+    transition: 1s;
+    /* width: 100%;
+    height: var(--iconbar-width); */
+    margin: 0.5em 0px;
+    padding: 7px;
+    border-radius: 10%; 
+    
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidenav span, .sidenav i {
+    font-size: 40px;
+  }
+
+  .sidenav p:hover {
+    background-color: #5555;
+  }
   
   .infobar {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
     right: 0;
     background-color: #7773; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
+    overflow-x: hidden; 
+    padding-top: 60px; 
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   }
   

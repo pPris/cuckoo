@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Sidebar.css'
+import Infobar from './Infobar/Infobar'
 
 /* <!-- sources used for sidebar designing and tooltips: w3schools.com --> */
 
@@ -9,26 +10,16 @@ every onclick function --> toggle state whether infobar is open, and pass a prop
 render info bar only if state is true
 */
 
-// this component is not going to be rendered unless it's opened by clicking an icon
-// will need to render correct information based on props
-const Infobar = () => {
 
-    let className = 'infobar';
-
-    // if (isOpen) 
-    className += ' open-infobar' // always add
-
-    return (
-        <div id="infobar" class={className}>
-            <p>This is meant to be more long text and information </p>
-        </div>
-    )
-}
 
 class Sidebar extends Component {
     state = {
-        infoBarOpen: false,
-        infoToDisplay: 0 // 1-5 corresponds to each icon, from top to bottom order
+        // infoBarOpen: false,
+        // infoToDisplay: 0 // 1-5 corresponds to each icon, from top to bottom order
+
+        // temporary for testing infobar with less clicks
+        infoBarOpen: true,
+        infoToDisplay: 1 
     }
     
 
@@ -67,10 +58,10 @@ class Sidebar extends Component {
 
                 {/* // on click, each icon will lead to a different set of info being displayed on the info bar */}
                     <div id="sidenav" class={className}>
-                        <p onClick={() => toggleOpen(1)}><span class="material-icons">perm_identity</span></p>
-                        <p onClick={() => toggleOpen(2)}><span class="material-icons">hourglass_empty</span></p>
+                        <p onClick={() => toggleOpen(1)}><span class="material-icons">hourglass_empty</span></p>
+                        <p onClick={() => toggleOpen(2)}><span class="material-icons">perm_identity</span></p>
                         <p onClick={() => toggleOpen(3)}><span class="material-icons">info_outline</span></p>
-                        <p onClick={() => toggleOpen(4)}><i class="material-icons">chat_bubble_outline</i></p>
+                        <p onClick={() => toggleOpen(4)}><span class="material-icons">chat_bubble_outline</span></p>
                         <p><i class="material-icons">exit_to_app</i></p>
                     </div>
                 
