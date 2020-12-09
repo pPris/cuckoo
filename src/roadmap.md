@@ -37,3 +37,16 @@ for later:
 * timer should be renamed bubbles.js
 * need a different timer.js
 * how about before the shareable link is created? how to model that?
+
+note to self: commits will show up on contribution history after the branch is merged
+not very sure why the deleted branch is still showing up on vscode
+pull should be the way to sync remote to local right?
+
+### redering twice bug
+(not completely sure of this bug)
+react states are updated twice in strict mode, so timings added on the side bar are added twice
+not sure how to fix this
+might be caused by an impure setstate function 
+
+strict mode calls state changes twice as a testing precaution
+if your setstate functions are correct (don't mutate previous state, build new state based on previous, etc) then you should get the same behaviour when called twice

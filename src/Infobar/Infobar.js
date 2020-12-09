@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Infobar.css' // for contents inside the infobar
 import '../Sidebar.css' 
+import TimingsForm from './TimingsForm.js'
 
 // this component is not going to be rendered unless it's opened by clicking an icon
 // will need to render correct information based on props
@@ -8,7 +9,8 @@ import '../Sidebar.css'
 
 const tempStaticTimings = [5, 20, 50];
 
-function adjustTimings(workTimings, breakTimings) {
+
+function displayTimings(workTimings, breakTimings, addTimingFx) {
     const wt = workTimings.map(x => (<p>{x}</p>));
     const bt = breakTimings.map(x => (<p>{x}</p>));
 
@@ -16,7 +18,9 @@ function adjustTimings(workTimings, breakTimings) {
         <div class="timings-box">
             <h3>Work sessions</h3>
             {wt}
+            <TimingsForm addTiming={addTimingFx} isWork={true}/>
             <h3>Breaks</h3>
+            <TimingsForm addTiming={addTimingFx} isWork={false}/>
             {bt}
         </div>
     )
@@ -26,22 +30,21 @@ class Infobar extends Component {
 
     render() {
 
-        let className = 'infobar';
-        className += ' open-infobar' // always add this class
+        let className = 'infobar open-infobar' // info bar is always open if rendered, in this implementation
 
         let body; 
+
         if (this.props.display == 1) {
-            body = adjustTimings(tempStaticTimings, tempStaticTimings);
+            body = displayTimings(
+                this.props.workTimes, this.props.breakTimes, this.props.addTiming);
         } else if (this.props.display == 2) {
             
         } else {
-            // temp
-            body = <p>This is meant to be more long text and information </p>
+            body = <p>This is meant to be more long text and information </p> // temp
         }
 
         return (
             <div id="infobar" class={className}>
-                
                 {body}
             </div>
         )

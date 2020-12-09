@@ -39,7 +39,10 @@ class Sidebar extends Component {
 
         const infobar = () => {
             if (this.state.infoBarOpen) {
-                return (<Infobar display={this.state.infoToDisplay}/>)
+                return (<Infobar display={this.state.infoToDisplay} 
+                    breakTimes={this.props.breakTimes} 
+                    workTimes={this.props.workTimes}
+                    addTiming={this.props.addTiming}/>)
             }
         }
 
