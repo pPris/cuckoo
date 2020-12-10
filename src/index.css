@@ -11,11 +11,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--work-bg);
-  justify-content: center;
+  /* background-color: var(--work-bg); this overrides the colour change in app.js */
+  /* justify-content: center; */
   /* align-content: center; */
+
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
+
+  height: 100vh;
 }
 
 code {
@@ -60,7 +63,7 @@ code {
   justify-content: center;
 }
 
-#timer-mode {
+#timer-mode, .timer-control {
   /* font-family: ; */
   margin-top: 1.5em;
   font-stretch: expanded;
@@ -70,3 +73,34 @@ code {
   opacity: 60%;
 }
 
+.timer-control {
+  /* to fix color and standardizing across the css stuff later */
+  opacity: 50%
+}
+
+.timer-control p:hover {
+  opacity: 40% 
+}
+
+.ongoing-timer {
+  color: whitesmoke;
+}
+
+.paused-timer {
+  /* color: #5558 */
+}
+
+#timer-value {
+  font-size: 50px;
+}
+
+#timer-container, #app-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50%; 
+  /* how do i set height so that this occupies the remaining length */
+
+  margin: 0 auto;
+}

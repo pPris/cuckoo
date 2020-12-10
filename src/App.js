@@ -3,13 +3,13 @@ import Footer from './Footer';
 import Bubbles from './Bubbles';
 import Timer from './Timer';
 import Sidebar from './Sidebar';
-
+import './index.css'
 
 class App extends Component {
     // why can't any code be written here?
     state = {
         currMode: true,
-        timerStatus: false,
+        timerStatus: true,
         breakTimes: [2, 5, 7, 10, 20],
         workTimes: [5, 10, 15, 25, 30, 50]
     }
@@ -24,8 +24,12 @@ class App extends Component {
         // things that mode doesn't affect 
             // the history log, members list, and settings toolbar
 
-        // work vs break mode
+        // toggle timer and bubbles
+        const toggleTimerStatus = () => {
+            this.setState((state) => ({timerStatus: !state.timerStatus}))
+        }
 
+        // toggles between break and work
         const toggleFunction = () => {
             this.setState((state) => ({currMode: !state.currMode})) // ({}) impt, you're likely returning an object 
         }
@@ -53,7 +57,7 @@ class App extends Component {
 
         const body = 
             this.state.timerStatus 
-            ? <Timer toggleFx={toggleFunction}/> 
+            ? <Timer toggleMode={toggleFunction} toggleTimerStatus={toggleTimerStatus}/> 
             : <Bubbles mode={this.state.currMode} 
             toggleFx={toggleFunction}
             timings={this.state.currMode ? this.state.workTimes : this.state.breakTimes}/> 
@@ -71,14 +75,11 @@ class App extends Component {
             '#aaf';
         }
 
-        // let elem = document.querySelector("#timer-mode");
-        // elem.style.color = "#ffccff";
-        
-        
+
         return (
-            <div>
+            <body>
                 <p id="timer-mode">{timerHeading}</p>
-                {body}
+                <div id="app-body">{body}</div>
 
                 {/* <Timer id="timer-comp" mode={currMode} 
                     timerValues={currMode ? workTimes : breakTimes}/> */}
@@ -87,7 +88,7 @@ class App extends Component {
                 <Sidebar addTiming={addTiming} breakTimes={this.state.breakTimes} workTimes={this.state.workTimes}/>
                 <Footer id="app-footer" />
                 {console.log("updated: " + this.state.workTimes + "\n break: " + this.state.breakTimes)}
-            </div>
+            </body>
         )
     }
 }
