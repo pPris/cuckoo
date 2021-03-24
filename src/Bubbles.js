@@ -7,7 +7,7 @@ class Bubbles extends Component {
     render() {
         const {timings} = this.props;
 
-        const bubbleBody = this.props.timings.map((value, index) => {
+        const mainBubbles = this.props.timings.map((value, index) => {
             return (
                 <p class="circles">{value}</p>
             )
@@ -15,7 +15,10 @@ class Bubbles extends Component {
 
         const toggleBubble = this.props.mode ? 'Have a break' : 'Skip break';
         
-        
+        const fx = () => {
+            alert(0)
+            return 0;
+        }
 
         return (
             <div id="timer-comp">
@@ -26,14 +29,9 @@ class Bubbles extends Component {
                     For example, style={{marginRight: spacing + 'em'}} when using JSX. */}
                     {/* style={{"flex-grow: 1.5"}} */}
                     
-                {/* </div> */}
-                {/* shouldn't have two divs but im doing for aesthetic purposes 
-                single digit messes up layout*/}
                 <div class="circle-container">
-                    {/* <p class="circles">15</p> 
-                    <p class="circles">10</p> */}
-                    {bubbleBody}
-                    <p class="circles toggle-text">{toggleBubble}</p>
+                    {mainBubbles}
+                    <p class="circles toggle-text" onClick={this.props.toggleFx}>{toggleBubble}</p>
                 </div>
             </div>
         )

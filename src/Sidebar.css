@@ -1,0 +1,98 @@
+:root {
+    --border-color: #0001;
+    --bar-offset: 250px;
+    --iconbar-width: 70px;
+  }
+  
+  body {
+    /* background-color: #dad; */
+    /* why does sidebar need a body class, remove this
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    */
+  } 
+  
+  .sidenav {
+    height: 100%; 
+    width: var(--iconbar-width); 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    right: 0;
+  
+    overflow-x: hidden; /* Disable horizontal scroll */
+    
+    /*  need to specify initial properties for transition   */
+    border-color: var(--border-color); 
+    
+    
+    
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    
+    /*  using flex to center div items  */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    color: white;
+  }  
+
+  .sidenav:hover, .sidenavhover { 
+    background-color: #5552;
+    border-left: solid;
+    border-right: solid;
+    border-width: 1.2px;
+    border-color: var(--border-color); /* todo something darker than bg  */
+    
+  /*   box-shadow: inset 5px 0px #fff5 */
+  }
+
+  .sidenav p {
+    transition: 1s;
+    /* width: 100%;
+    height: var(--iconbar-width); */
+    margin: 0.5em 0px;
+    padding: 7px;
+    border-radius: 10%; 
+    
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidenav span, .sidenav i {
+    font-size: 40px;
+  }
+
+  .sidenav p:hover {
+    background-color: #5555;
+  }
+  
+  .infobar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    right: 0;
+    background-color: #7773; /* Black*/
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* sidenav class when infobar is open */
+  /* todo rename sidenav as iconbar or settings */
+  .open-iconbar {
+    right: var(--bar-offset);
+  }
+
+  .open-infobar {
+    width: var(--bar-offset);
+    /* background-color: red; */
+
+  }
+

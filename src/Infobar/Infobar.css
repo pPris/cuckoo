@@ -1,0 +1,45 @@
+
+h3 {
+    text-transform: uppercase;
+    text-align: left;
+    margin: auto 1em;
+    padding: 1em 0;
+    color: white;
+}
+
+.timings-box {
+    /* display: flex;
+    flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+
+    color: white; 
+    /* add later when not too bright */
+    opacity: 80%;
+}
+
+.timings-box p {
+    width: 80%;
+    background-color: #5552;
+    padding: 1em;
+    margin: 3px 0;
+
+    /* to center the p blocks */
+    margin-left: 1em;
+    margin-right: 1em;
+
+}
+
+form {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+input {
+    padding: 1em;
+    width: 80%;
+}
+
+.left {
+    text-align: left;
+}
