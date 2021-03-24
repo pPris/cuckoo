@@ -11,7 +11,7 @@ class TimingsForm extends Component {
         const {isWork} = this.props
         let placeholder;
         if (isWork) { 
-            placeholder = "add another session"
+            placeholder = "enter a whole number here"
         } else {
             placeholder = "add another break"
         }

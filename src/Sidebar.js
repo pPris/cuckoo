@@ -18,7 +18,7 @@ class Sidebar extends Component {
         // infoToDisplay: 0 // 1-5 corresponds to each icon, from top to bottom order
 
         // temporary for testing infobar with less clicks
-        infoBarOpen: true,
+        infoBarOpen: false,
         infoToDisplay: 1 
     }
     
@@ -30,11 +30,15 @@ class Sidebar extends Component {
             // when open, should toggle only if same x/icon is clicked
             // if not same, then should change the information being displayed that's all
             console.log(x);
-            this.setState((state) => (
-                {infoBarOpen: (!state.infoBarOpen || x === state.infoToDisplay 
-                    ? (!state.infoBarOpen) 
-                    : state.infoBarOpen), 
-                infoToDisplay: x}))
+            if (x === 5) this.setState(() => ({ infoBarOpen: false }))
+            else {
+                this.setState((state) => ({
+                    infoBarOpen: (!state.infoBarOpen || x === state.infoToDisplay
+                        ? (!state.infoBarOpen)
+                        : state.infoBarOpen),
+                    infoToDisplay: x
+                }))
+            }
         }
 
         const infobar = () => {
@@ -65,7 +69,7 @@ class Sidebar extends Component {
                         <p onClick={() => toggleOpen(2)}><span class="material-icons">perm_identity</span></p>
                         <p onClick={() => toggleOpen(3)}><span class="material-icons">info_outline</span></p>
                         <p onClick={() => toggleOpen(4)}><span class="material-icons">chat_bubble_outline</span></p>
-                        <p><i class="material-icons">exit_to_app</i></p>
+                        <p onClick={() => toggleOpen(5)}><i class="material-icons">exit_to_app</i></p>
                     </div>
                 
                 {infobar()}

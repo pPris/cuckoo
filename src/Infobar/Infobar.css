@@ -39,3 +39,7 @@ input {
     padding: 1em;
     width: 80%;
 }
+
+.left {
+    text-align: left;
+}

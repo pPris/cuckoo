@@ -10,7 +10,7 @@ class Footer extends Component {
         return (
             <div id="footer">
                 <div id="log">
-                    <p id="log1">X did something 6 minutes ago.</p>
+                    <p id="log1">This user did something 6 minutes ago.</p>
                 </div>
                 <div id="members-list">
                     <p class="members-circles">P</p>

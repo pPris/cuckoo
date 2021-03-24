@@ -9,7 +9,7 @@ class App extends Component {
     // why can't any code be written here?
     state = {
         currMode: true,
-        timerStatus: true,
+        timerStatus: true, // currently setting to open because haven't implemented switching from bubble to timer
         breakTimes: [2, 5, 7, 10, 20],
         workTimes: [5, 10, 15, 25, 30, 50]
     }
