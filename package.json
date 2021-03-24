@@ -5,7 +5,7 @@
   "engines": {
     "npm": "7.3.0",
     "node": "v15.5.1"
-  }
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
