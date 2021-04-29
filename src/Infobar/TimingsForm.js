@@ -28,8 +28,7 @@ class TimingsForm extends Component {
         }
 
 
-        const keyDown = (event) => { // can you add arguments?
-            
+        const keyDown = (event) => {
             if (event.key == 'Enter') {
                 event.preventDefault(); // without this, page is refreshed after enter
                 console.log("hi")

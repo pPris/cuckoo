@@ -61,14 +61,8 @@ class Timer extends Component {
             )
         }
 
-        // const updateTimePassed = () => {
-
-        // }
-
         let minLeft, secLeft;
 
-        // const calcTimeLeft = () => {
-            // subtracting two date objects gives millisec 
         if (!this.state.isTimerPaused) {
             let diff = this.state.timeLeft - (this.state.currTime - this.state.startTime)
             minLeft = Math.floor(diff / 60000)

@@ -22,13 +22,6 @@ class Bubbles extends Component {
 
         return (
             <div id="timer-comp">
-                {/* <div class="circle-container"> 
-                    <p class="circles" id="c50">50</p>
-                    <p class="circles">20</p> */}
-                    {/* Error: The `style` prop expects a mapping from style properties to values, not a string. 
-                    For example, style={{marginRight: spacing + 'em'}} when using JSX. */}
-                    {/* style={{"flex-grow: 1.5"}} */}
-                    
                 <div class="circle-container">
                     {mainBubbles}
                     <p class="circles toggle-text" onClick={this.props.toggleFx}>{toggleBubble}</p>

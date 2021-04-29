@@ -8,13 +8,10 @@ h3 {
 }
 
 .timings-box {
-    /* display: flex;
-    flex-direction: column; */
     align-items: center;
     justify-content: center;
 
     color: white; 
-    /* add later when not too bright */
     opacity: 80%;
 }
 

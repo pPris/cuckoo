@@ -6,7 +6,6 @@ import Sidebar from './Sidebar';
 import './index.css'
 
 class App extends Component {
-    // why can't any code be written here?
     state = {
         currMode: true,
         timerStatus: true, // currently setting to open because haven't implemented switching from bubble to timer
