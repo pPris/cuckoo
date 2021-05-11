@@ -17,7 +17,6 @@ class Timer extends Component {
         durationInMins: 25
     }
 
-    // todo: componentDidUpdate might fix bug? doesn't make sense for timer to start counting down before render
     componentDidMount() {
         this.setState(() => {
             let d = new Date();
