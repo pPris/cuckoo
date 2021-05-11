@@ -8,9 +8,10 @@ import './index.css'
 class App extends Component {
     state = {
         currMode: true,
-        timerStatus: true, // currently setting to open because haven't implemented switching from bubble to timer
+        timerStatus: false, // currently setting to open because haven't implemented switching from bubble to timer
         breakTimes: [2, 5, 7, 10, 20],
-        workTimes: [5, 10, 15, 25, 30, 50]
+        workTimes: [5, 10, 15, 25, 30, 50],
+        timerValue: 25 // if no timer, should be zero
     }
 
     render() {
@@ -49,6 +50,11 @@ class App extends Component {
             }
         }
 
+        // callback function for starting a timer of a bubble's value
+        const startTimer = (bubbleValue) => {
+            this.setState(() => ({timerValue: bubbleValue, timerStatus: true}))
+        }
+
         // the heading at the top of the cuckoo timer page
         const timerHeading = this.state.currMode 
             ? 'work time'
@@ -56,10 +62,11 @@ class App extends Component {
 
         const body = 
             this.state.timerStatus 
-            ? <Timer toggleMode={toggleFunction} toggleTimerStatus={toggleTimerStatus}/> 
+            ? <Timer toggleMode={toggleFunction} toggleTimerStatus={toggleTimerStatus} timerValue = {this.state.timerValue}/> 
             : <Bubbles mode={this.state.currMode} 
-            toggleFx={toggleFunction}
-            timings={this.state.currMode ? this.state.workTimes : this.state.breakTimes}/> 
+                toggleFx={toggleFunction}
+                startTimerFx={startTimer}
+                timings={this.state.currMode ? this.state.workTimes : this.state.breakTimes}/> 
 
         const workColor = '#3480eb';
         const breakColor = '#8934eb';
