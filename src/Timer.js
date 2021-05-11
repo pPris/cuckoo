@@ -8,15 +8,21 @@ class Timer extends Component {
         this.updateCurrentTime = this.updateCurrentTime.bind(this)
     }
 
+    // initialise startTime/currTime when component has mounted
     state = {
         isTimerPaused: false, // should be false unless testing
-        timeLeft: 25 * 60000,
-        startTime: new Date(),
-        currTime: new Date(), // not very sure of best js date practices
+        timeLeft: this.props.timerValue * 60000, // using an intermediate variable doesn't work. might need to bind this.
+        startTime: null,
+        currTime: null, // not very sure of best js date practices
         durationInMins: 25
     }
 
+    // todo: componentDidUpdate might fix bug? doesn't make sense for timer to start counting down before render
     componentDidMount() {
+        this.setState(() => {
+            let d = new Date();
+            return {startTime: d, currTime: d}
+        })
         this.timerID = setInterval(this.updateCurrentTime, 1000);
     }
 
