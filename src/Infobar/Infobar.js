@@ -7,6 +7,8 @@ import TimingsForm from './TimingsForm.js'
 // will need to render correct information based on props
 // const Infobar = () => {
 
+// todo check vscode ubuntu how a selected icon's style changes on left bar
+
 
 function displayTimings(workTimings, breakTimings, addTimingFx) {
     const wt = workTimings.map(x => (<p>{x}</p>));

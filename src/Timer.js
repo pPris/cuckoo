@@ -6,6 +6,7 @@ class Timer extends Component {
     constructor(props) {
         super(props);
         this.updateCurrentTime = this.updateCurrentTime.bind(this)
+        this.setIntervalFx = this.setIntervalFx.bind(this)
     }
 
     // initialise startTime/currTime when component has mounted
@@ -22,7 +23,16 @@ class Timer extends Component {
             let d = new Date();
             return {startTime: d, currTime: d}
         })
-        this.timerID = setInterval(this.updateCurrentTime, 1000);
+        this.setIntervalFx();
+    }
+    
+    setIntervalFx() {
+        this.timerID = setInterval(this.updateCurrentTime, 1000); // * note how you set variables
+    }
+
+    componentDidUpdate() {
+        // if (this.state.timeLeft )
+        // if ()   
     }
 
     componentWillUnmount() {
@@ -30,23 +40,33 @@ class Timer extends Component {
     }
 
     updateCurrentTime() {
-        this.setState({currTime: new Date()}); // bind needed above to perform this
+        // bind needed above to perform this
+        this.setState({currTime: new Date()});
+        // this.setState({currTime: new Date()},  
+        //     () => this.setState((prevState) => ({timeLeft: prevState.timeLeft - (prevState.currTime - prevState.startTime)}))
+        // );
     }
 
     render() {
 
         // timer control functions
         // revise these if implementation of this component('s state) changes
-        const resume = () => this.setState({
-            isTimerPaused: false,
-            startTime: new Date(),
-            currTime: new Date()
-        })
-
-        const pause = () => this.setState({
-            isTimerPaused: true,
-            timeLeft: this.state.timeLeft - (this.state.currTime - this.state.startTime)
-        })
+        const resume = () => {
+            this.setState({
+                isTimerPaused: false,
+                startTime: new Date(),
+                currTime: new Date()
+            })
+            this.setIntervalFx();
+        }
+        
+        const pause = () => {
+            this.setState((prevState) => ({
+                isTimerPaused: true,
+                timeLeft: prevState.timeLeft - (prevState.currTime - prevState.startTime) //* shouldn't use this.state
+            }))
+            clearInterval(this.timerID);
+        }
 
         let timerCtrl;
 
